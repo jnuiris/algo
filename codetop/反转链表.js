@@ -53,17 +53,32 @@ function traverse(node) {
 // };
 
 //  最终还是看了官方题解，简记为2指向0，0指向1，1指向2，返回0,先这么记，以后可以慢慢理解
-var reverseList = function(head) {
-    let pre = null;
-    let cur = head;
+// var reverseList = function(head) {
+//     let pre = null;
+//     let cur = head;
+//     while(cur) {
+//         let next = cur.next;
+//         cur.next = pre;
+//         pre = cur;
+//         cur = next;
+//     }
+//     return pre;
+// };
+//
+//
+// traverse(reverseList(one));
+
+// 时隔一天之后，我决定重写一次
+var reverseList = function (head) {
+    var cur = head;
+    var pre = null;
     while(cur) {
-        let next = cur.next;
+        var next = cur.next;
         cur.next = pre;
         pre = cur;
         cur = next;
     }
     return pre;
-};
-
-
+}
 traverse(reverseList(one));
+
