@@ -83,16 +83,29 @@ function traverse(node) {
 // traverse(reverseList(one));
 
 //  时隔两天之后，我决定再写一次
+// var reverseList = function (head) {
+//     var pre = null;
+//     var cur = head;
+//     while(cur != null) {
+//         var next = cur.next;
+//         cur.next = pre;
+//         pre = cur;
+//         cur = next;
+//     }
+//     return pre;
+// }
+//
+// console.log(traverse(reverseList(one)));
+
+//  第三次写
 var reverseList = function (head) {
-    var pre = null;
-    var cur = head;
-    while(cur != null) {
-        var next = cur.next;
+    let pre = null;
+    let cur = head;
+    while(cur) {
+        let next = cur.next;
         cur.next = pre;
         pre = cur;
         cur = next;
     }
     return pre;
 }
-
-console.log(traverse(reverseList(one)));
