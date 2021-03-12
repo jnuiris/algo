@@ -97,7 +97,20 @@ function traverse(node) {
 //
 // console.log(traverse(reverseList(one)));
 
-//  第三次写
+//  第四次写
+// var reverseList = function (head) {
+//     let pre = null;
+//     let cur = head;
+//     while(cur) {
+//         let next = cur.next;
+//         cur.next = pre;
+//         pre = cur;
+//         cur = next;
+//     }
+//     return pre;
+// }
+
+// 第五次写
 var reverseList = function (head) {
     let pre = null;
     let cur = head;
