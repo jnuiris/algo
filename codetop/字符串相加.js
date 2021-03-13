@@ -33,24 +33,45 @@
 // //  JS在处理16位以上的数字时会损失精度，还是我太年轻了
 
 //  参考了标准回答，可以用模拟解决问题
-var addStrings = function(num1, num2) {
-    let i = num1.length - 1, j = num2.length - 1;
-    let ans = 0, add = 0, tmp1 = 0, tmp2 = 0;
-    let result = [];
+// var addStrings = function(num1, num2) {
+//     let i = num1.length - 1, j = num2.length - 1;
+//     let ans = 0, add = 0, tmp1 = 0, tmp2 = 0;
+//     let result = [];
+//     while(i >= 0 || j >= 0) {
+//         tmp1 = i >= 0 ? num1[i] - '0' : 0;
+//         tmp2 = j >= 0 ? num2[j] - '0' : 0;
+//         ans = tmp1 + tmp2 + add;
+//         add = (Math.floor(ans / 10));
+//         result.push(ans % 10);
+//         i--;j--;
+//     }
+//     if(add != 0) {
+//         result.push(add);
+//     }
+//     return result.reverse().join('');
+// };
+// console.log(addStrings('0', '0'));
+//
+// //  几经修改之后终于AC，这是非常有意思的一道题，也是这几天做的最有收获的一道题
+
+//  字符串相加，第二次写
+var addStrings = function (num1, num2) {
+    let i = num1.length - 1;
+    let j = num2.length - 1;
+    let add = 0;
+    let arr = [];
     while(i >= 0 || j >= 0) {
-        tmp1 = i >= 0 ? num1[i] - '0' : 0;
-        tmp2 = j >= 0 ? num2[j] - '0' : 0;
-        ans = tmp1 + tmp2 + add;
-        add = (Math.floor(ans / 10));
-        result.push(ans % 10);
-        i--;j--;
+        let trans1 = i >= 0 ? num1[i] - '0' : 0;
+        let trans2 = j >= 0 ? num2[j] - '0' : 0;
+        let result = trans1 + trans2 + add;
+        arr.push(result % 10);
+        add = Math.floor(result / 10);
+        i--;
+        j--;
     }
     if(add != 0) {
-        result.push(add);
+        arr.push(add);
     }
-    return result.reverse().join('');
-};
-console.log(addStrings('0', '0'));
-
-//  几经修改之后终于AC，这是非常有意思的一道题，也是这几天做的最有收获的一道题
-
+    return arr.reverse().join('');
+}
+console.log(addStrings('1', '9'));
