@@ -31,17 +31,34 @@
 // console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
 
 //  刚才竟然还是没写出来，现在再写一遍
-var maxSubArray = function (nums) {
-    let ans = nums[0];
+// var maxSubArray = function (nums) {
+//     let ans = nums[0];
+//     let sum = 0;
+//     for(let num of nums) {
+//         if(sum > 0) {
+//             sum += num;
+//         }else {
+//             sum = num;
+//         }
+//         ans = Math.max(ans, sum);
+//     }
+//     return ans;
+// }
+
+var maxSubArray = function(nums) {
+    let ans = -Infinity;
+    let result = 0;
     let sum = 0;
-    for(let num of nums) {
+    for(let i = 0; i < nums.length; i++) {
         if(sum > 0) {
-            sum += num;
+            sum += nums[i];
         }else {
-            sum = num;
+            sum = nums[i];
         }
-        ans = Math.max(ans, sum);
+        ans = Math.max(sum, ans);
     }
     return ans;
 }
+
 console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+console.log(maxSubArray([-100000]));
