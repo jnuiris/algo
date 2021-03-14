@@ -124,15 +124,28 @@ function traverse(node) {
 // }
 
 //  第六次写
+// var reverseList = function (head) {
+//     let cur = head;
+//     let pre = null;
+//     while(cur) {
+//         let next = cur.next;
+//         cur.next = pre;
+//         pre = cur;
+//         cur = next;
+//     }
+//     return pre;
+// }
+// console.log(traverse(reverseList(one)));
+
+//  第七次写，这应该是这段时间最后一次写了
 var reverseList = function (head) {
     let cur = head;
     let pre = null;
     while(cur) {
         let next = cur.next;
         cur.next = pre;
-        pre = cur;
+        pre.next = cur;
         cur = next;
     }
     return pre;
 }
-console.log(traverse(reverseList(one)));
